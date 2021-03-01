@@ -1,0 +1,998 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_rx_esistream_top_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="esistream_pkg" />
+            <top_module name="glbl" />
+            <top_module name="ipif_pkg" />
+            <top_module name="lib_pkg" />
+            <top_module name="tb_pkg" />
+            <top_module name="tb_rx_esistream_top" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="23311601538fs"></ZoomEndTime>
+      <Cursor1Time time="14064263000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="252"></NameColumnWidth>
+      <ValueColumnWidth column_width="86"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="7" />
+   <wave_markers>
+      <marker time="13440101000" label="" />
+      <marker time="6598941000" label="" />
+   </wave_markers>
+   <wvobject fp_name="group224" type="group">
+      <obj_property name="label">tb_rx_esistream_top</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_rx_esistream_top/sso_p" type="logic">
+         <obj_property name="ElementShortName">sso_p</obj_property>
+         <obj_property name="ObjectShortName">sso_p</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/sso_n" type="logic">
+         <obj_property name="ElementShortName">sso_n</obj_property>
+         <obj_property name="ObjectShortName">sso_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/clk_100" type="logic">
+         <obj_property name="ElementShortName">clk_100</obj_property>
+         <obj_property name="ObjectShortName">clk_100</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/tb_uart_ready" type="logic">
+         <obj_property name="ElementShortName">tb_uart_ready</obj_property>
+         <obj_property name="ObjectShortName">tb_uart_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/tb_sync_in" type="logic">
+         <obj_property name="ElementShortName">tb_sync_in</obj_property>
+         <obj_property name="ObjectShortName">tb_sync_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/tb_ip_ready" type="logic">
+         <obj_property name="ElementShortName">tb_ip_ready</obj_property>
+         <obj_property name="ObjectShortName">tb_ip_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/tb_lanes_ready" type="logic">
+         <obj_property name="ElementShortName">tb_lanes_ready</obj_property>
+         <obj_property name="ObjectShortName">tb_lanes_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/tb_isrunning" type="logic">
+         <obj_property name="ElementShortName">tb_isrunning</obj_property>
+         <obj_property name="ObjectShortName">tb_isrunning</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/tb_be_status" type="logic">
+         <obj_property name="ElementShortName">tb_be_status</obj_property>
+         <obj_property name="ObjectShortName">tb_be_status</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/tb_cb_status" type="logic">
+         <obj_property name="ElementShortName">tb_cb_status</obj_property>
+         <obj_property name="ObjectShortName">tb_cb_status</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/tb_valid_status" type="logic">
+         <obj_property name="ElementShortName">tb_valid_status</obj_property>
+         <obj_property name="ObjectShortName">tb_valid_status</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/tx_ip_ready" type="logic">
+         <obj_property name="ElementShortName">tx_ip_ready</obj_property>
+         <obj_property name="ObjectShortName">tx_ip_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_ip_ready" type="logic">
+         <obj_property name="ElementShortName">rx_ip_ready</obj_property>
+         <obj_property name="ObjectShortName">rx_ip_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/ip_ready" type="logic">
+         <obj_property name="ElementShortName">ip_ready</obj_property>
+         <obj_property name="ObjectShortName">ip_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/tx_d_ctrl" type="array">
+         <obj_property name="ElementShortName">tx_d_ctrl[1:0]</obj_property>
+         <obj_property name="ObjectShortName">tx_d_ctrl[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_prbs_en" type="logic">
+         <obj_property name="ElementShortName">rx_prbs_en</obj_property>
+         <obj_property name="ObjectShortName">rx_prbs_en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/tx_prbs_en" type="logic">
+         <obj_property name="ElementShortName">tx_prbs_en</obj_property>
+         <obj_property name="ObjectShortName">tx_prbs_en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/tx_disp_en" type="logic">
+         <obj_property name="ElementShortName">tx_disp_en</obj_property>
+         <obj_property name="ObjectShortName">tx_disp_en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/tx_lss" type="logic">
+         <obj_property name="ElementShortName">tx_lss</obj_property>
+         <obj_property name="ObjectShortName">tx_lss</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/sync" type="logic">
+         <obj_property name="ElementShortName">sync</obj_property>
+         <obj_property name="ObjectShortName">sync</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rst" type="logic">
+         <obj_property name="ElementShortName">rst</obj_property>
+         <obj_property name="ObjectShortName">rst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rstn" type="logic">
+         <obj_property name="ElementShortName">rstn</obj_property>
+         <obj_property name="ObjectShortName">rstn</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rst_check" type="logic">
+         <obj_property name="ElementShortName">rst_check</obj_property>
+         <obj_property name="ObjectShortName">rst_check</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/ev12aq600_rstn" type="logic">
+         <obj_property name="ElementShortName">ev12aq600_rstn</obj_property>
+         <obj_property name="ObjectShortName">ev12aq600_rstn</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/sclk" type="logic">
+         <obj_property name="ElementShortName">sclk</obj_property>
+         <obj_property name="ObjectShortName">sclk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/miso" type="logic">
+         <obj_property name="ElementShortName">miso</obj_property>
+         <obj_property name="ObjectShortName">miso</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/mosi" type="logic">
+         <obj_property name="ElementShortName">mosi</obj_property>
+         <obj_property name="ObjectShortName">mosi</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/csn" type="logic">
+         <obj_property name="ElementShortName">csn</obj_property>
+         <obj_property name="ObjectShortName">csn</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/synctrig_p" type="logic">
+         <obj_property name="ElementShortName">synctrig_p</obj_property>
+         <obj_property name="ObjectShortName">synctrig_p</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/synctrig_n" type="logic">
+         <obj_property name="ElementShortName">synctrig_n</obj_property>
+         <obj_property name="ObjectShortName">synctrig_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/synco_p" type="logic">
+         <obj_property name="ElementShortName">synco_p</obj_property>
+         <obj_property name="ObjectShortName">synco_p</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/synco_n" type="logic">
+         <obj_property name="ElementShortName">synco_n</obj_property>
+         <obj_property name="ObjectShortName">synco_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/lfsr_init" type="array">
+         <obj_property name="ElementShortName">lfsr_init[7:0][16:0]</obj_property>
+         <obj_property name="ObjectShortName">lfsr_init[7:0][16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/clk_bit" type="logic">
+         <obj_property name="ElementShortName">clk_bit</obj_property>
+         <obj_property name="ObjectShortName">clk_bit</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/tx_clk" type="logic">
+         <obj_property name="ElementShortName">tx_clk</obj_property>
+         <obj_property name="ObjectShortName">tx_clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/txp" type="array">
+         <obj_property name="ElementShortName">txp[7:0]</obj_property>
+         <obj_property name="ObjectShortName">txp[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/txn" type="array">
+         <obj_property name="ElementShortName">txn[7:0]</obj_property>
+         <obj_property name="ObjectShortName">txn[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/uart_tx" type="logic">
+         <obj_property name="ElementShortName">uart_tx</obj_property>
+         <obj_property name="ObjectShortName">uart_tx</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/uart_rx" type="logic">
+         <obj_property name="ElementShortName">uart_rx</obj_property>
+         <obj_property name="ObjectShortName">uart_rx</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/m1_axi_addr" type="array">
+         <obj_property name="ElementShortName">m1_axi_addr[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m1_axi_addr[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/m1_axi_strb" type="array">
+         <obj_property name="ElementShortName">m1_axi_strb[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m1_axi_strb[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/m1_axi_wdata" type="array">
+         <obj_property name="ElementShortName">m1_axi_wdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">m1_axi_wdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/m1_axi_rdata" type="array">
+         <obj_property name="ElementShortName">m1_axi_rdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">m1_axi_rdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/m1_axi_wen" type="logic">
+         <obj_property name="ElementShortName">m1_axi_wen</obj_property>
+         <obj_property name="ObjectShortName">m1_axi_wen</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/m1_axi_ren" type="logic">
+         <obj_property name="ElementShortName">m1_axi_ren</obj_property>
+         <obj_property name="ObjectShortName">m1_axi_ren</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/m1_axi_busy" type="logic">
+         <obj_property name="ElementShortName">m1_axi_busy</obj_property>
+         <obj_property name="ObjectShortName">m1_axi_busy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/s1_interrupt" type="logic">
+         <obj_property name="ElementShortName">s1_interrupt</obj_property>
+         <obj_property name="ObjectShortName">s1_interrupt</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/reg3" type="array">
+         <obj_property name="ElementShortName">reg3[7:0]</obj_property>
+         <obj_property name="ObjectShortName">reg3[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/manual_mode" type="logic">
+         <obj_property name="ElementShortName">manual_mode</obj_property>
+         <obj_property name="ObjectShortName">manual_mode</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/spare_0" type="logic">
+         <obj_property name="ElementShortName">spare_0</obj_property>
+         <obj_property name="ObjectShortName">spare_0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/GEN_ESISTREAM" type="other">
+         <obj_property name="ElementShortName">GEN_ESISTREAM</obj_property>
+         <obj_property name="ObjectShortName">GEN_ESISTREAM</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/GEN_GPIO" type="other">
+         <obj_property name="ElementShortName">GEN_GPIO</obj_property>
+         <obj_property name="ObjectShortName">GEN_GPIO</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/NB_LANES" type="other">
+         <obj_property name="ElementShortName">NB_LANES</obj_property>
+         <obj_property name="ObjectShortName">NB_LANES</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/COMMA" type="array">
+         <obj_property name="ElementShortName">COMMA[31:0]</obj_property>
+         <obj_property name="ObjectShortName">COMMA[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/NB_CLK_CYC" type="array">
+         <obj_property name="ElementShortName">NB_CLK_CYC[31:0]</obj_property>
+         <obj_property name="ObjectShortName">NB_CLK_CYC[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/RST_CNTR_INIT" type="array">
+         <obj_property name="ElementShortName">RST_CNTR_INIT[11:0]</obj_property>
+         <obj_property name="ObjectShortName">RST_CNTR_INIT[11:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/ADDR_RX_FIFO" type="array">
+         <obj_property name="ElementShortName">ADDR_RX_FIFO[3:0]</obj_property>
+         <obj_property name="ObjectShortName">ADDR_RX_FIFO[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/ADDR_TX_FIFO" type="array">
+         <obj_property name="ElementShortName">ADDR_TX_FIFO[3:0]</obj_property>
+         <obj_property name="ObjectShortName">ADDR_TX_FIFO[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/ADDR_STAT" type="array">
+         <obj_property name="ElementShortName">ADDR_STAT[3:0]</obj_property>
+         <obj_property name="ObjectShortName">ADDR_STAT[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/ADDR_CTRL" type="array">
+         <obj_property name="ElementShortName">ADDR_CTRL[3:0]</obj_property>
+         <obj_property name="ObjectShortName">ADDR_CTRL[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/SPI_START_ENABLE" type="array">
+         <obj_property name="ElementShortName">SPI_START_ENABLE[7:0]</obj_property>
+         <obj_property name="ObjectShortName">SPI_START_ENABLE[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/SPI_START_DISABLE" type="array">
+         <obj_property name="ElementShortName">SPI_START_DISABLE[7:0]</obj_property>
+         <obj_property name="ObjectShortName">SPI_START_DISABLE[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/SPI_SS_EXTERNAL_PLL" type="array">
+         <obj_property name="ElementShortName">SPI_SS_EXTERNAL_PLL[7:0]</obj_property>
+         <obj_property name="ObjectShortName">SPI_SS_EXTERNAL_PLL[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/SPI_SS_EV12AQ600" type="array">
+         <obj_property name="ElementShortName">SPI_SS_EV12AQ600[7:0]</obj_property>
+         <obj_property name="ObjectShortName">SPI_SS_EV12AQ600[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group339" type="group">
+      <obj_property name="label">txrx_frame_checking</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/rst" type="logic">
+         <obj_property name="ElementShortName">rst</obj_property>
+         <obj_property name="ObjectShortName">rst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/d_ctrl" type="array">
+         <obj_property name="ElementShortName">d_ctrl[1:0]</obj_property>
+         <obj_property name="ObjectShortName">d_ctrl[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/lanes_on" type="array">
+         <obj_property name="ElementShortName">lanes_on[7:0]</obj_property>
+         <obj_property name="ObjectShortName">lanes_on[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/frame_out" type="array">
+         <obj_property name="ElementShortName">frame_out[7:0][3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">frame_out[7:0][3:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/valid_out" type="array">
+         <obj_property name="ElementShortName">valid_out[7:0]</obj_property>
+         <obj_property name="ObjectShortName">valid_out[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/be_status" type="logic">
+         <obj_property name="ElementShortName">be_status</obj_property>
+         <obj_property name="ObjectShortName">be_status</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/cb_status" type="logic">
+         <obj_property name="ElementShortName">cb_status</obj_property>
+         <obj_property name="ObjectShortName">cb_status</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/valid_status" type="logic">
+         <obj_property name="ElementShortName">valid_status</obj_property>
+         <obj_property name="ObjectShortName">valid_status</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/sum" type="array">
+         <obj_property name="ElementShortName">sum[7:0][3:0][11:0]</obj_property>
+         <obj_property name="ObjectShortName">sum[7:0][3:0][11:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/u_sum" type="array">
+         <obj_property name="ElementShortName">u_sum[7:0][3:0][11:0]</obj_property>
+         <obj_property name="ObjectShortName">u_sum[7:0][3:0][11:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/step" type="array">
+         <obj_property name="ElementShortName">step[11:0]</obj_property>
+         <obj_property name="ObjectShortName">step[11:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_check_per_lane" type="array">
+         <obj_property name="ElementShortName">data_check_per_lane[7:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">data_check_per_lane[7:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_check_all_lane" type="array">
+         <obj_property name="ElementShortName">data_check_all_lane[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_check_all_lane[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/cb_check_per_lane" type="array">
+         <obj_property name="ElementShortName">cb_check_per_lane[7:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">cb_check_per_lane[7:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/cb_check_all_lane" type="array">
+         <obj_property name="ElementShortName">cb_check_all_lane[7:0]</obj_property>
+         <obj_property name="ObjectShortName">cb_check_all_lane[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/cb_out_d" type="array">
+         <obj_property name="ElementShortName">cb_out_d[7:0][3:0][0:0]</obj_property>
+         <obj_property name="ObjectShortName">cb_out_d[7:0][3:0][0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b" type="array">
+         <obj_property name="ElementShortName">data_out_12b[7:0][3:0][11:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_12b[7:0][3:0][11:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+         <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[7]" type="array">
+            <obj_property name="ElementShortName">[7][3:0][11:0]</obj_property>
+            <obj_property name="ObjectShortName">[7][3:0][11:0]</obj_property>
+            <obj_property name="isExpanded"></obj_property>
+            <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[7][3]" type="array">
+               <obj_property name="ElementShortName">[3][11:0]</obj_property>
+               <obj_property name="ObjectShortName">[3][11:0]</obj_property>
+               <obj_property name="CellHeight">100</obj_property>
+               <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+               <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+               <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+               <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+               <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+               <obj_property name="AnalogHorizLine">0.000000</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            </wvobject>
+            <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[7][2]" type="array">
+               <obj_property name="ElementShortName">[2][11:0]</obj_property>
+               <obj_property name="ObjectShortName">[2][11:0]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[7][1]" type="array">
+               <obj_property name="ElementShortName">[1][11:0]</obj_property>
+               <obj_property name="ObjectShortName">[1][11:0]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[7][0]" type="array">
+               <obj_property name="ElementShortName">[0][11:0]</obj_property>
+               <obj_property name="ObjectShortName">[0][11:0]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[7][3]" type="array">
+               <obj_property name="ElementShortName">[3][11:0]</obj_property>
+               <obj_property name="ObjectShortName">[3][11:0]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[7][2]" type="array">
+               <obj_property name="ElementShortName">[2][11:0]</obj_property>
+               <obj_property name="ObjectShortName">[2][11:0]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[7][1]" type="array">
+               <obj_property name="ElementShortName">[1][11:0]</obj_property>
+               <obj_property name="ObjectShortName">[1][11:0]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[7][0]" type="array">
+               <obj_property name="ElementShortName">[0][11:0]</obj_property>
+               <obj_property name="ObjectShortName">[0][11:0]</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[6]" type="array">
+            <obj_property name="ElementShortName">[6][3:0][11:0]</obj_property>
+            <obj_property name="ObjectShortName">[6][3:0][11:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[5]" type="array">
+            <obj_property name="ElementShortName">[5][3:0][11:0]</obj_property>
+            <obj_property name="ObjectShortName">[5][3:0][11:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[4]" type="array">
+            <obj_property name="ElementShortName">[4][3:0][11:0]</obj_property>
+            <obj_property name="ObjectShortName">[4][3:0][11:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[3]" type="array">
+            <obj_property name="ElementShortName">[3][3:0][11:0]</obj_property>
+            <obj_property name="ObjectShortName">[3][3:0][11:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[2]" type="array">
+            <obj_property name="ElementShortName">[2][3:0][11:0]</obj_property>
+            <obj_property name="ObjectShortName">[2][3:0][11:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[1]" type="array">
+            <obj_property name="ElementShortName">[1][3:0][11:0]</obj_property>
+            <obj_property name="ObjectShortName">[1][3:0][11:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[0]" type="array">
+            <obj_property name="ElementShortName">[0][3:0][11:0]</obj_property>
+            <obj_property name="ObjectShortName">[0][3:0][11:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[7]" type="array">
+            <obj_property name="ElementShortName">[7][3:0][11:0]</obj_property>
+            <obj_property name="ObjectShortName">[7][3:0][11:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[6]" type="array">
+            <obj_property name="ElementShortName">[6][3:0][11:0]</obj_property>
+            <obj_property name="ObjectShortName">[6][3:0][11:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[5]" type="array">
+            <obj_property name="ElementShortName">[5][3:0][11:0]</obj_property>
+            <obj_property name="ObjectShortName">[5][3:0][11:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[4]" type="array">
+            <obj_property name="ElementShortName">[4][3:0][11:0]</obj_property>
+            <obj_property name="ObjectShortName">[4][3:0][11:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[3]" type="array">
+            <obj_property name="ElementShortName">[3][3:0][11:0]</obj_property>
+            <obj_property name="ObjectShortName">[3][3:0][11:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[2]" type="array">
+            <obj_property name="ElementShortName">[2][3:0][11:0]</obj_property>
+            <obj_property name="ObjectShortName">[2][3:0][11:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[1]" type="array">
+            <obj_property name="ElementShortName">[1][3:0][11:0]</obj_property>
+            <obj_property name="ObjectShortName">[1][3:0][11:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/data_out_12b[0]" type="array">
+            <obj_property name="ElementShortName">[0][3:0][11:0]</obj_property>
+            <obj_property name="ObjectShortName">[0][3:0][11:0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/valid_out_d1" type="array">
+         <obj_property name="ElementShortName">valid_out_d1[7:0]</obj_property>
+         <obj_property name="ObjectShortName">valid_out_d1[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/valid_out_d2" type="array">
+         <obj_property name="ElementShortName">valid_out_d2[7:0]</obj_property>
+         <obj_property name="ObjectShortName">valid_out_d2[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/valid_out_d3" type="array">
+         <obj_property name="ElementShortName">valid_out_d3[7:0]</obj_property>
+         <obj_property name="ObjectShortName">valid_out_d3[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/valid_out_d4" type="array">
+         <obj_property name="ElementShortName">valid_out_d4[7:0]</obj_property>
+         <obj_property name="ObjectShortName">valid_out_d4[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/valid_out_d5" type="array">
+         <obj_property name="ElementShortName">valid_out_d5[7:0]</obj_property>
+         <obj_property name="ObjectShortName">valid_out_d5[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/valid_out_d6" type="array">
+         <obj_property name="ElementShortName">valid_out_d6[7:0]</obj_property>
+         <obj_property name="ObjectShortName">valid_out_d6[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/NB_LANES" type="other">
+         <obj_property name="ElementShortName">NB_LANES</obj_property>
+         <obj_property name="ObjectShortName">NB_LANES</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/txrx_frame_checking_1/RAMP_DATA_WIDTH" type="other">
+         <obj_property name="ElementShortName">RAMP_DATA_WIDTH</obj_property>
+         <obj_property name="ObjectShortName">RAMP_DATA_WIDTH</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group631" type="group">
+      <obj_property name="label">rx_lfsr_init_0</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_lfsr_init/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_lfsr_init/rst" type="logic">
+         <obj_property name="ElementShortName">rst</obj_property>
+         <obj_property name="ObjectShortName">rst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_lfsr_init/din_rdy" type="logic">
+         <obj_property name="ElementShortName">din_rdy</obj_property>
+         <obj_property name="ObjectShortName">din_rdy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_lfsr_init/din" type="array">
+         <obj_property name="ElementShortName">din[0:3][15:0]</obj_property>
+         <obj_property name="ObjectShortName">din[0:3][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_lfsr_init/dout_rdy" type="logic">
+         <obj_property name="ElementShortName">dout_rdy</obj_property>
+         <obj_property name="ObjectShortName">dout_rdy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_lfsr_init/prbs" type="array">
+         <obj_property name="ElementShortName">prbs[0:3][16:0]</obj_property>
+         <obj_property name="ObjectShortName">prbs[0:3][16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_lfsr_init/dout" type="array">
+         <obj_property name="ElementShortName">dout[0:3][15:0]</obj_property>
+         <obj_property name="ObjectShortName">dout[0:3][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_lfsr_init/prbs_frame_started" type="logic">
+         <obj_property name="ElementShortName">prbs_frame_started</obj_property>
+         <obj_property name="ObjectShortName">prbs_frame_started</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_lfsr_init/din_no_prbs" type="logic">
+         <obj_property name="ElementShortName">din_no_prbs</obj_property>
+         <obj_property name="ObjectShortName">din_no_prbs</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_lfsr_init/din_d" type="array">
+         <obj_property name="ElementShortName">din_d[0:3][15:0]</obj_property>
+         <obj_property name="ObjectShortName">din_d[0:3][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_lfsr_init/din_rdy_d" type="logic">
+         <obj_property name="ElementShortName">din_rdy_d</obj_property>
+         <obj_property name="ObjectShortName">din_rdy_d</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_lfsr_init/prbs_frame_started_r" type="array">
+         <obj_property name="ElementShortName">prbs_frame_started_r[2:0]</obj_property>
+         <obj_property name="ObjectShortName">prbs_frame_started_r[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_lfsr_init/din_adj" type="array">
+         <obj_property name="ElementShortName">din_adj[0:3][15:0]</obj_property>
+         <obj_property name="ObjectShortName">din_adj[0:3][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_lfsr_init/lfsr_temp" type="array">
+         <obj_property name="ElementShortName">lfsr_temp[16:0]</obj_property>
+         <obj_property name="ObjectShortName">lfsr_temp[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_lfsr_init/lfsr_init_value" type="array">
+         <obj_property name="ElementShortName">lfsr_init_value[0:3][16:0]</obj_property>
+         <obj_property name="ObjectShortName">lfsr_init_value[0:3][16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_lfsr_init/lfsr_value" type="array">
+         <obj_property name="ElementShortName">lfsr_value[0:3][16:0]</obj_property>
+         <obj_property name="ObjectShortName">lfsr_value[0:3][16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_lfsr_init/frame_rearrange" type="logic">
+         <obj_property name="ElementShortName">frame_rearrange</obj_property>
+         <obj_property name="ObjectShortName">frame_rearrange</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_lfsr_init/COMMA" type="array">
+         <obj_property name="ElementShortName">COMMA[31:0]</obj_property>
+         <obj_property name="ObjectShortName">COMMA[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_lfsr_init/LFSR_LENGTH" type="other">
+         <obj_property name="ElementShortName">LFSR_LENGTH</obj_property>
+         <obj_property name="ObjectShortName">LFSR_LENGTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_lfsr_init/DATA_LENGTH" type="other">
+         <obj_property name="ElementShortName">DATA_LENGTH</obj_property>
+         <obj_property name="ObjectShortName">DATA_LENGTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_lfsr_init/LFSR_DELAY" type="other">
+         <obj_property name="ElementShortName">LFSR_DELAY</obj_property>
+         <obj_property name="ObjectShortName">LFSR_DELAY</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group642" type="group">
+      <obj_property name="label">rx_decoding_0_0</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/\gen_rx_decoding(0)\/i_rx_decoding/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/\gen_rx_decoding(0)\/i_rx_decoding/data_in" type="array">
+         <obj_property name="ElementShortName">data_in[15:0]</obj_property>
+         <obj_property name="ObjectShortName">data_in[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/\gen_rx_decoding(0)\/i_rx_decoding/prbs_value" type="array">
+         <obj_property name="ElementShortName">prbs_value[13:0]</obj_property>
+         <obj_property name="ObjectShortName">prbs_value[13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/\gen_rx_decoding(0)\/i_rx_decoding/prbs_en" type="logic">
+         <obj_property name="ElementShortName">prbs_en</obj_property>
+         <obj_property name="ObjectShortName">prbs_en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/\gen_rx_decoding(0)\/i_rx_decoding/data_out" type="array">
+         <obj_property name="ElementShortName">data_out[15:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/\gen_rx_decoding(0)\/i_rx_decoding/data_mask" type="array">
+         <obj_property name="ElementShortName">data_mask[14:0]</obj_property>
+         <obj_property name="ObjectShortName">data_mask[14:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/\gen_rx_decoding(0)\/i_rx_decoding/data_out_t" type="array">
+         <obj_property name="ElementShortName">data_out_t[15:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_t[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/\gen_rx_decoding(0)\/i_rx_decoding/prbs_value_en" type="array">
+         <obj_property name="ElementShortName">prbs_value_en[15:0]</obj_property>
+         <obj_property name="ObjectShortName">prbs_value_en[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/\gen_rx_decoding(0)\/i_rx_decoding/prbs_mask" type="array">
+         <obj_property name="ElementShortName">prbs_mask[13:0]</obj_property>
+         <obj_property name="ObjectShortName">prbs_mask[13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/\gen_rx_decoding(0)\/i_rx_decoding/data_dbp" type="array">
+         <obj_property name="ElementShortName">data_dbp[15:0]</obj_property>
+         <obj_property name="ObjectShortName">data_dbp[15:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group672" type="group">
+      <obj_property name="label">rx_lane_decoding_0</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/rst_esistream" type="logic">
+         <obj_property name="ElementShortName">rst_esistream</obj_property>
+         <obj_property name="ObjectShortName">rst_esistream</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/sync_esistream" type="logic">
+         <obj_property name="ElementShortName">sync_esistream</obj_property>
+         <obj_property name="ObjectShortName">sync_esistream</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/prbs_en" type="logic">
+         <obj_property name="ElementShortName">prbs_en</obj_property>
+         <obj_property name="ObjectShortName">prbs_en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/lane_on" type="logic">
+         <obj_property name="ElementShortName">lane_on</obj_property>
+         <obj_property name="ObjectShortName">lane_on</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/clk_acq" type="logic">
+         <obj_property name="ElementShortName">clk_acq</obj_property>
+         <obj_property name="ObjectShortName">clk_acq</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/data_in" type="array">
+         <obj_property name="ElementShortName">data_in[63:0]</obj_property>
+         <obj_property name="ObjectShortName">data_in[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/read_fifo" type="logic">
+         <obj_property name="ElementShortName">read_fifo</obj_property>
+         <obj_property name="ObjectShortName">read_fifo</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/lane_ready" type="logic">
+         <obj_property name="ElementShortName">lane_ready</obj_property>
+         <obj_property name="ObjectShortName">lane_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/decoded_frame_out" type="array">
+         <obj_property name="ElementShortName">decoded_frame_out[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">decoded_frame_out[3:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/decoded_data_out" type="array">
+         <obj_property name="ElementShortName">decoded_data_out[3:0][13:0]</obj_property>
+         <obj_property name="ObjectShortName">decoded_data_out[3:0][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/decoded_valid_out" type="logic">
+         <obj_property name="ElementShortName">decoded_valid_out</obj_property>
+         <obj_property name="ObjectShortName">decoded_valid_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/aligned_data_rdy" type="logic">
+         <obj_property name="ElementShortName">aligned_data_rdy</obj_property>
+         <obj_property name="ObjectShortName">aligned_data_rdy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/align_busy" type="logic">
+         <obj_property name="ElementShortName">align_busy</obj_property>
+         <obj_property name="ObjectShortName">align_busy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/aligned_data" type="array">
+         <obj_property name="ElementShortName">aligned_data[0:3][15:0]</obj_property>
+         <obj_property name="ObjectShortName">aligned_data[0:3][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/sync_d" type="logic">
+         <obj_property name="ElementShortName">sync_d</obj_property>
+         <obj_property name="ObjectShortName">sync_d</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/rst_logic_2d" type="logic">
+         <obj_property name="ElementShortName">rst_logic_2d</obj_property>
+         <obj_property name="ObjectShortName">rst_logic_2d</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/init_lfsr" type="logic">
+         <obj_property name="ElementShortName">init_lfsr</obj_property>
+         <obj_property name="ObjectShortName">init_lfsr</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/write_fifo" type="logic">
+         <obj_property name="ElementShortName">write_fifo</obj_property>
+         <obj_property name="ObjectShortName">write_fifo</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/scrambled_data" type="array">
+         <obj_property name="ElementShortName">scrambled_data[0:3][15:0]</obj_property>
+         <obj_property name="ObjectShortName">scrambled_data[0:3][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/scrambled_data_rdy" type="logic">
+         <obj_property name="ElementShortName">scrambled_data_rdy</obj_property>
+         <obj_property name="ObjectShortName">scrambled_data_rdy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/din_fifo" type="array">
+         <obj_property name="ElementShortName">din_fifo[0:3][15:0]</obj_property>
+         <obj_property name="ObjectShortName">din_fifo[0:3][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/descrambled_data" type="array">
+         <obj_property name="ElementShortName">descrambled_data[0:3][15:0]</obj_property>
+         <obj_property name="ObjectShortName">descrambled_data[0:3][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/descrambled_data_rdy" type="logic">
+         <obj_property name="ElementShortName">descrambled_data_rdy</obj_property>
+         <obj_property name="ObjectShortName">descrambled_data_rdy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/prbs" type="array">
+         <obj_property name="ElementShortName">prbs[0:3][16:0]</obj_property>
+         <obj_property name="ObjectShortName">prbs[0:3][16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/fifo_empty" type="array">
+         <obj_property name="ElementShortName">fifo_empty[3:0]</obj_property>
+         <obj_property name="ObjectShortName">fifo_empty[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/DATA_LENGTH" type="other">
+         <obj_property name="ElementShortName">DATA_LENGTH</obj_property>
+         <obj_property name="ObjectShortName">DATA_LENGTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/COMMA" type="array">
+         <obj_property name="ElementShortName">COMMA[31:0]</obj_property>
+         <obj_property name="ObjectShortName">COMMA[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/LFSR_LENGTH" type="other">
+         <obj_property name="ElementShortName">LFSR_LENGTH</obj_property>
+         <obj_property name="ObjectShortName">LFSR_LENGTH</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group243" type="group">
+      <obj_property name="label">rx_frame_alignment_0</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_frame_alignment/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_frame_alignment/din" type="array">
+         <obj_property name="ElementShortName">din[63:0]</obj_property>
+         <obj_property name="ObjectShortName">din[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_frame_alignment/sync" type="logic">
+         <obj_property name="ElementShortName">sync</obj_property>
+         <obj_property name="ObjectShortName">sync</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_frame_alignment/align_busy" type="logic">
+         <obj_property name="ElementShortName">align_busy</obj_property>
+         <obj_property name="ObjectShortName">align_busy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_frame_alignment/aligned_data" type="array">
+         <obj_property name="ElementShortName">aligned_data[0:3][15:0]</obj_property>
+         <obj_property name="ObjectShortName">aligned_data[0:3][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_frame_alignment/aligned_data_rdy" type="logic">
+         <obj_property name="ElementShortName">aligned_data_rdy</obj_property>
+         <obj_property name="ObjectShortName">aligned_data_rdy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_frame_alignment/data_buf" type="array">
+         <obj_property name="ElementShortName">data_buf[127:0]</obj_property>
+         <obj_property name="ObjectShortName">data_buf[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_frame_alignment/data_buf_comma" type="array">
+         <obj_property name="ElementShortName">data_buf_comma[127:0]</obj_property>
+         <obj_property name="ObjectShortName">data_buf_comma[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_frame_alignment/bitslip" type="other">
+         <obj_property name="ElementShortName">bitslip</obj_property>
+         <obj_property name="ObjectShortName">bitslip</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_frame_alignment/bitslip_d" type="other">
+         <obj_property name="ElementShortName">bitslip_d</obj_property>
+         <obj_property name="ObjectShortName">bitslip_d</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_frame_alignment/data_out_t" type="array">
+         <obj_property name="ElementShortName">data_out_t[63:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_t[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_frame_alignment/frame_align" type="logic">
+         <obj_property name="ElementShortName">frame_align</obj_property>
+         <obj_property name="ObjectShortName">frame_align</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_frame_alignment/frame_align_d" type="logic">
+         <obj_property name="ElementShortName">frame_align_d</obj_property>
+         <obj_property name="ObjectShortName">frame_align_d</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_frame_alignment/busy" type="logic">
+         <obj_property name="ElementShortName">busy</obj_property>
+         <obj_property name="ObjectShortName">busy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_frame_alignment/bitslip_t" type="array">
+         <obj_property name="ElementShortName">bitslip_t[63:0]</obj_property>
+         <obj_property name="ObjectShortName">bitslip_t[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_frame_alignment/comp_in_comma" type="array">
+         <obj_property name="ElementShortName">comp_in_comma[31:0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">comp_in_comma[31:0][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_frame_alignment/comp_out_comma" type="array">
+         <obj_property name="ElementShortName">comp_out_comma[31:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">comp_out_comma[31:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/gen_esistream_hdl/rx_esistream_inst/i_rx_esistream/\lane_decoding_gen(0)\/rx_lane_decoding_1/i_rx_frame_alignment/COMMA" type="array">
+         <obj_property name="ElementShortName">COMMA[31:0]</obj_property>
+         <obj_property name="ObjectShortName">COMMA[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group514" type="group">
+      <obj_property name="label">sync_generator</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/rst" type="logic">
+         <obj_property name="ElementShortName">rst</obj_property>
+         <obj_property name="ObjectShortName">rst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/sync_delay" type="array">
+         <obj_property name="ElementShortName">sync_delay[3:0]</obj_property>
+         <obj_property name="ObjectShortName">sync_delay[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/mode" type="logic">
+         <obj_property name="ElementShortName">mode</obj_property>
+         <obj_property name="ObjectShortName">mode</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/sync_en" type="logic">
+         <obj_property name="ElementShortName">sync_en</obj_property>
+         <obj_property name="ObjectShortName">sync_en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/lanes_ready" type="logic">
+         <obj_property name="ElementShortName">lanes_ready</obj_property>
+         <obj_property name="ObjectShortName">lanes_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/release_data" type="logic">
+         <obj_property name="ElementShortName">release_data</obj_property>
+         <obj_property name="ObjectShortName">release_data</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/wr_en" type="logic">
+         <obj_property name="ElementShortName">wr_en</obj_property>
+         <obj_property name="ObjectShortName">wr_en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/wr_counter" type="array">
+         <obj_property name="ElementShortName">wr_counter[7:0]</obj_property>
+         <obj_property name="ObjectShortName">wr_counter[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/rd_counter" type="array">
+         <obj_property name="ElementShortName">rd_counter[7:0]</obj_property>
+         <obj_property name="ObjectShortName">rd_counter[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/counter_busy" type="logic">
+         <obj_property name="ElementShortName">counter_busy</obj_property>
+         <obj_property name="ObjectShortName">counter_busy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/manual_mode" type="logic">
+         <obj_property name="ElementShortName">manual_mode</obj_property>
+         <obj_property name="ObjectShortName">manual_mode</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/send_sync" type="logic">
+         <obj_property name="ElementShortName">send_sync</obj_property>
+         <obj_property name="ObjectShortName">send_sync</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/sw_sync" type="logic">
+         <obj_property name="ElementShortName">sw_sync</obj_property>
+         <obj_property name="ObjectShortName">sw_sync</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/synctrig" type="logic">
+         <obj_property name="ElementShortName">synctrig</obj_property>
+         <obj_property name="ObjectShortName">synctrig</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/synctrig_re" type="logic">
+         <obj_property name="ElementShortName">synctrig_re</obj_property>
+         <obj_property name="ObjectShortName">synctrig_re</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/synctrig_o" type="logic">
+         <obj_property name="ElementShortName">synctrig_o</obj_property>
+         <obj_property name="ObjectShortName">synctrig_o</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/wr_counter_m" type="array">
+         <obj_property name="ElementShortName">wr_counter_m[7:0]</obj_property>
+         <obj_property name="ObjectShortName">wr_counter_m[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/sync_delay_m" type="array">
+         <obj_property name="ElementShortName">sync_delay_m[3:0]</obj_property>
+         <obj_property name="ObjectShortName">sync_delay_m[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/sync_mode_m" type="logic">
+         <obj_property name="ElementShortName">sync_mode_m</obj_property>
+         <obj_property name="ObjectShortName">sync_mode_m</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/u_counter" type="array">
+         <obj_property name="ElementShortName">u_counter[7:0]</obj_property>
+         <obj_property name="ObjectShortName">u_counter[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/cntr" type="array">
+         <obj_property name="ElementShortName">cntr[3:0]</obj_property>
+         <obj_property name="ObjectShortName">cntr[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/send_sync_re" type="logic">
+         <obj_property name="ElementShortName">send_sync_re</obj_property>
+         <obj_property name="ObjectShortName">send_sync_re</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/wr_en_re" type="logic">
+         <obj_property name="ElementShortName">wr_en_re</obj_property>
+         <obj_property name="ObjectShortName">wr_en_re</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/lanes_ready_d" type="logic">
+         <obj_property name="ElementShortName">lanes_ready_d</obj_property>
+         <obj_property name="ObjectShortName">lanes_ready_d</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/synctrig_re_o" type="logic">
+         <obj_property name="ElementShortName">synctrig_re_o</obj_property>
+         <obj_property name="ObjectShortName">synctrig_re_o</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/release_data_n_o" type="logic">
+         <obj_property name="ElementShortName">release_data_n_o</obj_property>
+         <obj_property name="ObjectShortName">release_data_n_o</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/rd_counter_n_o" type="array">
+         <obj_property name="ElementShortName">rd_counter_n_o[7:0]</obj_property>
+         <obj_property name="ObjectShortName">rd_counter_n_o[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/release_data_t_o" type="logic">
+         <obj_property name="ElementShortName">release_data_t_o</obj_property>
+         <obj_property name="ObjectShortName">release_data_t_o</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/rd_counter_t_o" type="array">
+         <obj_property name="ElementShortName">rd_counter_t_o[7:0]</obj_property>
+         <obj_property name="ObjectShortName">rd_counter_t_o[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/counter_busy_o" type="logic">
+         <obj_property name="ElementShortName">counter_busy_o</obj_property>
+         <obj_property name="ObjectShortName">counter_busy_o</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/SYNCTRIG_PULSE_WIDTH" type="other">
+         <obj_property name="ElementShortName">SYNCTRIG_PULSE_WIDTH</obj_property>
+         <obj_property name="ObjectShortName">SYNCTRIG_PULSE_WIDTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/SYNCTRIG_MAX_DELAY" type="other">
+         <obj_property name="ElementShortName">SYNCTRIG_MAX_DELAY</obj_property>
+         <obj_property name="ObjectShortName">SYNCTRIG_MAX_DELAY</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/SYNCTRIG_COUNTER_WIDTH" type="other">
+         <obj_property name="ElementShortName">SYNCTRIG_COUNTER_WIDTH</obj_property>
+         <obj_property name="ObjectShortName">SYNCTRIG_COUNTER_WIDTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/NORMAL" type="logic">
+         <obj_property name="ElementShortName">NORMAL</obj_property>
+         <obj_property name="ObjectShortName">NORMAL</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/TRAINING" type="logic">
+         <obj_property name="ElementShortName">TRAINING</obj_property>
+         <obj_property name="ObjectShortName">TRAINING</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/U_COUNTER_MAX" type="array">
+         <obj_property name="ElementShortName">U_COUNTER_MAX[7:0]</obj_property>
+         <obj_property name="ObjectShortName">U_COUNTER_MAX[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_rx_esistream_top/rx_esistream_top_1/sync_generator_1/cntr_msb" type="other">
+         <obj_property name="ElementShortName">cntr_msb</obj_property>
+         <obj_property name="ObjectShortName">cntr_msb</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>
