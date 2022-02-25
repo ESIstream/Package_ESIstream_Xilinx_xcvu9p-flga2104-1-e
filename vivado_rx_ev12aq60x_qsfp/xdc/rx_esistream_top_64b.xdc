@@ -1,24 +1,28 @@
-create_clock -period 5.333 -name clk_mgtref -waveform {0.000 2.667} [get_ports sso_p]
+create_clock -period 5.000 -name clk_mgtref -waveform {0.000 2.500} [get_ports sso_p]
+create_clock -period 5.000 -name clk_mgtref2 -waveform {0.000 2.500} [get_ports sso2_p]
 
-set_property PACKAGE_PIN J8 [get_ports sso_n]
-set_property PACKAGE_PIN J9 [get_ports sso_p]
+set_property PACKAGE_PIN AK39 [get_ports sso_n]
+set_property PACKAGE_PIN AK38 [get_ports sso_p]
 
-set_property PACKAGE_PIN T2 [get_ports {rxp[0]}]
-set_property PACKAGE_PIN T1 [get_ports {rxn[0]}]
-set_property PACKAGE_PIN R4 [get_ports {rxp[1]}]
-set_property PACKAGE_PIN R3 [get_ports {rxn[1]}]
-set_property PACKAGE_PIN P2 [get_ports {rxp[2]}]
-set_property PACKAGE_PIN P1 [get_ports {rxn[2]}]
-set_property PACKAGE_PIN M2 [get_ports {rxp[3]}]
-set_property PACKAGE_PIN M1 [get_ports {rxn[3]}]
-set_property PACKAGE_PIN K2 [get_ports {rxp[4]}]
-set_property PACKAGE_PIN K1 [get_ports {rxn[4]}]
-set_property PACKAGE_PIN H2 [get_ports {rxp[5]}]
-set_property PACKAGE_PIN H1 [get_ports {rxn[5]}]
-set_property PACKAGE_PIN F2 [get_ports {rxp[6]}]
-set_property PACKAGE_PIN F1 [get_ports {rxn[6]}]
-set_property PACKAGE_PIN D2 [get_ports {rxp[7]}]
-set_property PACKAGE_PIN D1 [get_ports {rxn[7]}]
+set_property PACKAGE_PIN V39 [get_ports sso2_n]
+set_property PACKAGE_PIN V38 [get_ports sso2_p]
+
+set_property PACKAGE_PIN AR45 [get_ports {rxp[0]}]
+set_property PACKAGE_PIN AR46 [get_ports {rxn[0]}]
+set_property PACKAGE_PIN AN45 [get_ports {rxp[1]}]
+set_property PACKAGE_PIN AN46 [get_ports {rxn[1]}]
+set_property PACKAGE_PIN AL45 [get_ports {rxp[2]}]
+set_property PACKAGE_PIN AL46 [get_ports {rxn[2]}]
+set_property PACKAGE_PIN AJ45 [get_ports {rxp[3]}]
+set_property PACKAGE_PIN AJ46 [get_ports {rxn[3]}]
+set_property PACKAGE_PIN W45 [get_ports {rxp[4]}]
+set_property PACKAGE_PIN W46 [get_ports {rxn[4]}]
+set_property PACKAGE_PIN U45 [get_ports {rxp[5]}]
+set_property PACKAGE_PIN U46 [get_ports {rxn[5]}]
+set_property PACKAGE_PIN R45 [get_ports {rxp[6]}]
+set_property PACKAGE_PIN R46 [get_ports {rxn[6]}]
+set_property PACKAGE_PIN N45 [get_ports {rxp[7]}]
+set_property PACKAGE_PIN N46 [get_ports {rxn[7]}]
 
 # PL system clock:
 set_property IOSTANDARD LVDS [get_ports CLK_125MHZ_P]
@@ -53,39 +57,107 @@ set_property PACKAGE_PIN AU37 [get_ports {gpio_led[5]}]
 set_property PACKAGE_PIN AV36 [get_ports {gpio_led[6]}]
 set_property PACKAGE_PIN BA37 [get_ports {gpio_led[7]}]
 
-set_property IOSTANDARD LVCMOS18 [get_ports uart_tx]
-set_property PACKAGE_PIN AW25 [get_ports uart_tx]
-set_property IOSTANDARD LVCMOS18 [get_ports uart_rx]
-set_property PACKAGE_PIN BB21 [get_ports uart_rx]
+
+set_property IOSTANDARD LVCMOS18 [get_ports {m2c_cfg[*]}]
+set_property PACKAGE_PIN N34 [get_ports {m2c_cfg[1]}]
+set_property PACKAGE_PIN N35 [get_ports {m2c_cfg[2]}]
+set_property PACKAGE_PIN Y34 [get_ports {m2c_cfg[3]}]
+set_property PACKAGE_PIN W34 [get_ports {m2c_cfg[4]}]
+
+set_property IOSTANDARD LVCMOS18 [get_ports {c2m_led[*]}]
+set_property PACKAGE_PIN AG32 [get_ports {c2m_led[1]}]
+set_property PACKAGE_PIN AG33 [get_ports {c2m_led[2]}]
+set_property PACKAGE_PIN N33 [get_ports {c2m_led[3]}]
+set_property PACKAGE_PIN M33 [get_ports {c2m_led[4]}]
+
+set_property IOSTANDARD LVCMOS18 [get_ports spare_8_uart_tx]
+set_property PACKAGE_PIN AP35 [get_ports spare_8_uart_tx]
+set_property IOSTANDARD LVCMOS18 [get_ports spare_9_uart_rx]
+set_property PACKAGE_PIN AH31 [get_ports spare_9_uart_rx]
+
+set_property IOSTANDARD LVCMOS18 [get_ports {spare[*]}]
+set_property PACKAGE_PIN AJ31 [get_ports {spare[1]}]
+set_property PACKAGE_PIN AH34 [get_ports {spare[2]}]
+set_property PACKAGE_PIN AP37 [get_ports {spare[3]}]
+set_property PACKAGE_PIN AP36 [get_ports {spare[4]}]
+set_property PACKAGE_PIN AH35 [get_ports {spare[5]}]
+set_property PACKAGE_PIN AJ33 [get_ports {spare[6]}]
+set_property PACKAGE_PIN AT35 [get_ports {spare[7]}]
+
+set_property IOSTANDARD LVCMOS18 [get_ports fpga_ref_clk]
+set_property PACKAGE_PIN AL35 [get_ports fpga_ref_clk]
+
+set_property IOSTANDARD LVCMOS18 [get_ports ref_sel_ext]
+set_property PACKAGE_PIN AT39 [get_ports ref_sel_ext]
+
+set_property IOSTANDARD LVCMOS18 [get_ports ref_sel]
+set_property PACKAGE_PIN AT40 [get_ports ref_sel]
+
+set_property IOSTANDARD LVCMOS18 [get_ports clk_sel]
+set_property PACKAGE_PIN AK29 [get_ports clk_sel]
+
+set_property IOSTANDARD LVCMOS18 [get_ports synco_sel]
+set_property PACKAGE_PIN AK30 [get_ports synco_sel]
+
+set_property IOSTANDARD LVCMOS18 [get_ports sync_sel]
+set_property PACKAGE_PIN AH33 [get_ports sync_sel]
+
+set_property IOSTANDARD LVCMOS18 [get_ports hmc1031_d1]
+set_property PACKAGE_PIN AP38 [get_ports hmc1031_d1]
+
+set_property IOSTANDARD LVCMOS18 [get_ports hmc1031_d0]
+set_property PACKAGE_PIN AR38 [get_ports hmc1031_d0]
+
+set_property IOSTANDARD LVCMOS18 [get_ports pll_muxout]
+set_property PACKAGE_PIN AG34 [get_ports pll_muxout]
+
+set_property IOSTANDARD LVDS [get_ports clkoutB_p]
+set_property PACKAGE_PIN R34 [get_ports clkoutB_p]
+set_property PACKAGE_PIN P34 [get_ports clkoutB_n]
+
+set_property IOSTANDARD LVCMOS18 [get_ports rstn]
+set_property PACKAGE_PIN AR35 [get_ports rstn]
+
+set_property IOSTANDARD LVCMOS18 [get_ports adc_sclk]
+set_property PACKAGE_PIN AL30 [get_ports adc_sclk]
+
+set_property IOSTANDARD LVCMOS18 [get_ports adc_cs_u]
+set_property PACKAGE_PIN AK33 [get_ports adc_cs_u]
+
+set_property IOSTANDARD LVCMOS18 [get_ports adc_mosi]
+set_property PACKAGE_PIN AJ36 [get_ports adc_mosi]
+
+set_property IOSTANDARD LVCMOS18 [get_ports adc_miso]
+set_property PACKAGE_PIN AJ35 [get_ports adc_miso]
+
+set_property IOSTANDARD LVCMOS18 [get_ports csn_pll]
+set_property PACKAGE_PIN AJ30 [get_ports csn_pll]
+
+set_property IOSTANDARD LVCMOS18 [get_ports sclk]
+set_property PACKAGE_PIN AG31 [get_ports sclk]
+
+set_property IOSTANDARD LVCMOS18 [get_ports miso]
+set_property PACKAGE_PIN AT36 [get_ports miso]
+
+set_property IOSTANDARD LVCMOS18 [get_ports mosi]
+set_property PACKAGE_PIN M32 [get_ports mosi]
+
+set_property IOSTANDARD LVCMOS18 [get_ports csn]
+set_property PACKAGE_PIN N32 [get_ports csn]
 
 set_property IOSTANDARD LVDS [get_ports synctrig_p]
-set_property PACKAGE_PIN R32 [get_ports synctrig_p]
-set_property PACKAGE_PIN P32 [get_ports synctrig_n]
+set_property PACKAGE_PIN AR37 [get_ports synctrig_p]
+set_property PACKAGE_PIN AT37 [get_ports synctrig_n]
 
-# PMODE0_4
-set_property IOSTANDARD LVCMOS18 [get_ports rstn]
-set_property PACKAGE_PIN AV16 [get_ports rstn]
+set_property IOSTANDARD LVDS [get_ports synco_p]
+set_property PACKAGE_PIN M36 [get_ports synco_p]
+set_property PACKAGE_PIN L36 [get_ports synco_n]
 
-# PMODE0_3
-set_property IOSTANDARD LVCMOS18 [get_ports sclk]
-set_property PACKAGE_PIN AV15 [get_ports sclk]
-
-# PMODE0_2
-set_property IOSTANDARD LVCMOS18 [get_ports miso]
-set_property PACKAGE_PIN AW15 [get_ports miso]
-
-# PMODE0_1
-set_property IOSTANDARD LVCMOS18 [get_ports mosi]
-set_property PACKAGE_PIN AY15 [get_ports mosi]
-
-# PMODE0_0
-set_property IOSTANDARD LVCMOS18 [get_ports csn]
-set_property PACKAGE_PIN AY14 [get_ports csn]
-
-set_false_path -from [get_clocks rx_usrclk] -to [get_clocks clk_out1_clk_wiz_0]
-set_false_path -from [get_clocks clk_out1_clk_wiz_0] -to [get_clocks rx_usrclk]
+#set_false_path -from [get_clocks rx_usrclk] -to [get_clocks clk_out1_clk_wiz_0]
+#set_false_path -from [get_clocks clk_out1_clk_wiz_0] -to [get_clocks rx_usrclk]
+set_false_path -from [get_clocks rxoutclk_out[3]] -to [get_clocks clk_out1_clk_wiz_0]
+set_false_path -from [get_clocks clk_out1_clk_wiz_0] -to [get_clocks rxoutclk_out[3]]
 set_false_path -from [get_clocks clk_mgtref] -to [get_clocks clk_out1_clk_wiz_0]
 set_false_path -from [get_clocks clk_out1_clk_wiz_0] -to [get_clocks clk_mgtref]
-set_false_path -from [get_clocks rx_usrclk] -to [get_clocks clk_mgtref]
-set_false_path -from [get_clocks clk_mgtref] -to [get_clocks rx_usrclk]
-
+set_false_path -from [get_clocks clk_mgtref2] -to [get_clocks clk_out1_clk_wiz_0]
+set_false_path -from [get_clocks clk_out1_clk_wiz_0] -to [get_clocks clk_mgtref2]

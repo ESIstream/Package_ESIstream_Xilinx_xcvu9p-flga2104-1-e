@@ -40,6 +40,7 @@ use UNISIM.VComponents.all;
 entity rx_esistream_top is
   generic(
     GEN_ESISTREAM          : boolean                       := true;
+    GEN_ILA                : boolean                       := true;
     GEN_GPIO               : boolean                       := false;
     NB_LANES               : integer                       := 8;
     RST_CNTR_INIT          : std_logic_vector(11 downto 0) := x"FFF";
@@ -53,31 +54,54 @@ entity rx_esistream_top is
     FIFO_DEPTH             : integer                       := 8
     );
   port (
+    -- dbg_sim          : in  std_logic;
     sso_n           : in    std_logic;                                                 -- mgtrefclk from transceiver clock input
     sso_p           : in    std_logic;                                                 -- mgtrefclk from transceiver clock input
+    sso2_n          : in    std_logic;                                                 -- mgtrefclk from transceiver clock input
+    sso2_p          : in    std_logic;                                                 -- mgtrefclk from transceiver clock input
     CLK_125MHZ_P    : in    std_logic;                                                 -- sysclk
     CLK_125MHZ_N    : in    std_logic;                                                 -- sysclk
-    -- ev12aq600 HSSLs (x8)
     rxp             : in    std_logic_vector(NB_LANES-1 downto 0) := (others => '0');  -- lane serial input p
     rxn             : in    std_logic_vector(NB_LANES-1 downto 0) := (others => '0');  -- lane Serial input n
-    -- user interface signals
+    -- FPGA Carrier board user interface signals
     gpio_dip_sw     : in    std_logic_vector(4 downto 1);
     gpio_led        : out   std_logic_vector(7 downto 0);
-    gpio_sw_n       : in    std_logic; 
-    gpio_sw_w       : in    std_logic; 
-    gpio_sw_s       : in    std_logic; 
-    gpio_sw_e       : in    std_logic; 
-    gpio_sw_c       : in    std_logic; 
-    uart_tx         : in    std_logic;                                                 -- CP2105 USB to UART output 
-    uart_rx         : out   std_logic;                                                 -- CP2105 USB to UART input
-    -- ev12aq600 interface signals
+    gpio_sw_n       : in    std_logic;
+    gpio_sw_w       : in    std_logic;
+    gpio_sw_s       : in    std_logic;
+    gpio_sw_e       : in    std_logic;
+    gpio_sw_c       : in    std_logic;
+    -- FMC EV12AQ600 signals
+    m2c_cfg         : in    std_logic_vector(4 downto 1);
+    c2m_led         : out   std_logic_vector(4 downto 1);
+    spare_8_uart_tx : in    std_logic;                                                 -- CP2105 USB to UART output 
+    spare_9_uart_rx : out   std_logic;                                                 -- CP2105 USB to UART input
+    spare           : inout std_logic_vector(7 downto 1);
+    fpga_ref_clk    : out   std_logic;
+    ref_sel_ext     : out   std_logic;
+    ref_sel         : out   std_logic;
+    clk_sel         : out   std_logic;
+    synco_sel       : out   std_logic;
+    sync_sel        : out   std_logic;
+    hmc1031_d1      : out   std_logic;
+    hmc1031_d0      : out   std_logic;
+    pll_muxout      : in    std_logic;
+    clkoutB_p       : in    std_logic;
+    clkoutB_n       : in    std_logic;
     rstn            : out   std_logic;
+    adc_sclk        : out   std_logic;
+    adc_cs_u        : out   std_logic;                                                 -- AD7708 spi_csn, temperature monitoring 
+    adc_mosi        : out   std_logic;
+    adc_miso        : in    std_logic;
+    csn_pll         : out   std_logic;                                                 -- lmx2592   spi_csn
     sclk            : out   std_logic;                                                 -- ev12aq600  
     miso            : in    std_logic;                                                 -- ev12aq600
     mosi            : out   std_logic;
     csn             : out   std_logic;                                                 -- ev12aq600 spi_csn
     synctrig_p      : out   std_logic;
-    synctrig_n      : out   std_logic
+    synctrig_n      : out   std_logic;
+    synco_p         : in    std_logic;
+    synco_n         : in    std_logic
     );
 end entity rx_esistream_top;
 
@@ -100,6 +124,7 @@ architecture rtl of rx_esistream_top is
   -- _rs = _resynchronized (when there is a clock domain crossing)
   --------------------------------------------------------------------------------------------------------------------
   attribute keep                         : string;
+  --constant NB_LANES             : natural                               := 8;
   constant ALL_LANES_ON                  : std_logic_vector(NB_LANES-1 downto 0) := (others => '1');
   constant ALL_LANES_OFF                 : std_logic_vector(NB_LANES-1 downto 0) := (others => '0');
   signal sysrst                          : std_logic                             := '0';
@@ -135,6 +160,10 @@ architecture rtl of rx_esistream_top is
   signal dsw_tx_emu_d_ctrl               : std_logic_vector(1 downto 0)          := "00";
   signal dsw_prbs_en                     : std_logic                             := '1';
   signal dsw_manual_mode                 : std_logic                             := '0';
+--
+  signal spare_i                         : std_logic_vector(7 downto 1)          := (others => '0');
+  signal spare_o                         : std_logic_vector(7 downto 1)          := (others => '0');
+  signal spare_t                         : std_logic_vector(7 downto 1)          := (others => '0');
   --
   signal sync_set_odelay                 : std_logic                             := '0';
   signal sync_odelay_i                   : std_logic_vector(8 downto 0)          := (others => '0');
@@ -249,6 +278,7 @@ architecture rtl of rx_esistream_top is
 --
 begin
   --
+  gpio_led <= (others => '0');
   --------------------------------------------------------------------------------------------
   -- User interface:
   --------------------------------------------------------------------------------------------
@@ -268,7 +298,7 @@ begin
       clk_in1_n => CLK_125MHZ_N
       );
 
-  sysreset_1: entity work.sysreset
+  sysreset_1 : entity work.sysreset
     generic map (
       RST_CNTR_INIT => RST_CNTR_INIT)
     port map (
@@ -278,6 +308,18 @@ begin
       resetn  => s_resetn_i);
 
   -------------------------
+  -------------------------
+  gen_spare_iobuf : for idx in 1 to 7 generate
+    spare_t <= "1111100";    -- 7: IN, 6:IN, 5:IN, 4: OUT, 3: OUT, 2: OUT, 1: OUT
+    IOBUF_adx4_eeprom : IOBUF
+      port map (
+        O  => spare_o(idx),  -- 1-bit output: Buffer output
+        I  => spare_i(idx),  -- 1-bit input: Buffer input
+        IO => spare(idx),    -- 1-bit inout: Buffer inout (connect directly to top-level port)
+        T  => spare_t(idx)   -- 1-bit input: 3-state enable input '1': IN, '0': OUT
+        );
+  end generate gen_spare_iobuf;
+  -------------------------
   -- reset
   -------------------------
   rstn      <= reg_aq600_rstn;
@@ -286,27 +328,40 @@ begin
   rx_nrst   <= not rx_rst;
   rst_check <= sw_rst_check or reg_rst_check;
 
-  dsw_tx_emu_d_ctrl(1) <= gpio_dip_sw(1);      
-  dsw_tx_emu_d_ctrl(0) <= gpio_dip_sw(2);      
-  dsw_prbs_en          <= gpio_dip_sw(3);      
-  dsw_manual_mode      <= gpio_dip_sw(4);
+  gen_gpio_false_hdl : if GEN_GPIO = false generate
+    -------------------------
+    -- spare signals
+    -------------------------
+    dsw_tx_emu_d_ctrl(1) <= '0';
+    dsw_tx_emu_d_ctrl(0) <= '0';
+    dsw_prbs_en          <= '1';
+    dsw_manual_mode      <= '0';
+  end generate gen_gpio_false_hdl;
+
+  gen_gpio_true_hdl : if GEN_GPIO = true generate
+    -------------------------
+    -- spare signals
+    -------------------------
+    dsw_tx_emu_d_ctrl(1) <= spare_o(7);        -- gpio_j20_14;  --dipswitch(2)
+    dsw_tx_emu_d_ctrl(0) <= spare_o(6);        -- gpio_j20_12;  --dipswitch(3)
+    dsw_prbs_en          <= spare_o(5);        -- gpio_j20_2;   --dipswitch(4)
+    dsw_manual_mode      <= spare_o(4);
+  end generate gen_gpio_true_hdl;
   -------------------------
   -- Switches
   -------------------------
-  sw_rst       <= gpio_sw_n;                
-  sync_in      <= gpio_sw_c;                
-  sw_rst_check <= gpio_sw_s;                
-  sysrst       <= gpio_sw_w;                
+  sw_rst       <= m2c_cfg(1);                  -- gpio_j20_10;  --SW_C 
+  sync_in      <= m2c_cfg(2);                  -- gpio_j20_8;   --SW_S 
+  sw_rst_check <= m2c_cfg(3);                  -- gpio_j20_6;   --SW_W 
+  sysrst       <= m2c_cfg(4);                  -- gpio_j20_4;   --SW_N 
   --
   -- leds
-  gpio_led(0)   <= uart_ready;
-  gpio_led(1)   <= rx_ip_ready;
-  gpio_led(2)   <= rx_lanes_ready;
-  gpio_led(3)   <= valid_status;
-  gpio_led(4)   <= cb_status; -- clk bit status (see ESIstream protocol description for clk bit)
-  gpio_led(5)   <= be_status; -- bit error status
-  gpio_led(6)   <= '0';
-  gpio_led(7)   <= '0';
+  spare_i(1)   <= uart_ready;
+  c2m_led(1)   <= rx_ip_ready;-- and pll_muxout;  --  and tx_ip_ready;
+  c2m_led(2)   <= rx_lanes_ready;
+  c2m_led(3)   <= cb_status;
+  c2m_led(4)   <= be_status;
+  spare_i(2)   <= valid_status;
   --------------------------------------------------------------------------------------------
   -- sysclk rising edge:
   --------------------------------------------------------------------------------------------
@@ -371,6 +426,8 @@ begin
         sysclk       => sysclk,
         refclk_n     => sso_n,
         refclk_p     => sso_p,
+        refclk2_n    => sso2_n,
+        refclk2_p    => sso2_p,
         rxn          => rxn,
         rxp          => rxp,
         sync_in      => rx_sync_in,
@@ -417,6 +474,27 @@ begin
       be_status    => be_status,
       cb_status    => cb_status,
       valid_status => valid_status);
+
+  ---------------------------------
+  -- Integrated Logic Analyzer:
+  ---------------------------------
+  g_ila : if GEN_ILA = true generate
+    ila_wrapper_1 : entity work.ila_wrapper
+      generic map (
+        NB_LANES => NB_LANES)
+      port map (
+        clk            => rx_clk,
+        rx_sync        => rx_sync_in,
+        data_out_12b_0 => data_out_12b(0),
+        data_out_12b_1 => data_out_12b(1),
+        data_out_12b_2 => data_out_12b(2),
+        data_out_12b_3 => data_out_12b(3),
+        data_out_12b_4 => data_out_12b(4),
+        data_out_12b_5 => data_out_12b(5),
+        data_out_12b_6 => data_out_12b(6),
+        data_out_12b_7 => data_out_12b(7));
+  end generate g_ila;
+  --
 
   --------------------------------------------------------------------------------------------
   -- SYNC generator and SYNC counter
@@ -465,8 +543,39 @@ begin
       I  => synctrig_odelay
       );
   --------------------------------------------------------------------------------------------
-  -- SPI Master, dual slave: EV12AQ600 & LMX2592 (only EV12AQ600 used on VU9P design example)
+  -- SPI Master, dual slave: EV12AQ600 & LMX2592
   --------------------------------------------------------------------------------------------
+  -- SPI MUX to switch between EV12AQ60x ADC and PLL LMX2592:
+  process(spi_ss, spi_sclk, spi_ncs1, spi_ncs2, spi_mosi, miso, adc_miso)
+  begin
+    if spi_ss = '0' then  -- AQ600
+      sclk     <= spi_sclk;
+      csn      <= spi_ncs1;
+      mosi     <= spi_mosi;
+      spi_miso <= miso;
+      --
+      adc_sclk <= '0';
+      csn_pll  <= '1';
+      adc_mosi <= '0';
+      --spi_miso     <= adc_miso; -- not used
+      --
+      adc_cs_u <= '1';
+
+    else  -- LMX
+      sclk     <= '0';
+      csn      <= '1';
+      mosi     <= '0';
+      -- spi_miso <= miso; -- not used
+      --
+      adc_sclk <= spi_sclk;
+      csn_pll  <= spi_ncs2;
+      adc_mosi <= spi_mosi;
+      spi_miso <= adc_miso;
+      --
+      adc_cs_u <= '1';
+    end if;
+  end process;
+
   spi_dual_master_1 : entity work.spi_dual_master
     generic map (
       CLK_MHz         => CLK_MHz,
@@ -476,12 +585,12 @@ begin
     port map (
       clk            => sysclk,
       rst            => s_reset_i,
-      spi_ncs1       => csn,         -- EV12AQ600
-      spi_ncs2       => open,         -- LMX2592
-      spi_sclk       => sclk,
-      spi_mosi       => mosi,
-      spi_miso       => miso,
-      spi_ss         => '0',           -- from register '0': AQ600 ; '1' : LMX2592
+      spi_ncs1       => spi_ncs1,         -- EV12AQ600
+      spi_ncs2       => spi_ncs2,         -- LMX2592
+      spi_sclk       => spi_sclk,
+      spi_mosi       => spi_mosi,
+      spi_miso       => spi_miso,
+      spi_ss         => spi_ss,           -- from register '0': AQ600 ; '1' : LMX2592
       spi_start      => spi_start_re,     -- from register
       spi_busy       => open,
       fifo_in_wr_en  => fifo_in_wr_en,    -- from register
@@ -506,8 +615,8 @@ begin
       m_axi_ren   => m_axi_ren,
       m_axi_busy  => m_axi_busy,
       interrupt   => s_interrupt,
-      tx          => uart_rx,
-      rx          => uart_tx);
+      tx          => spare_9_uart_rx,
+      rx          => spare_8_uart_tx);
 
   register_map_1 : entity work.register_map
     generic map (
@@ -580,7 +689,7 @@ begin
   sync_wr_counter      <= reg_7(7 downto 0);
   sync_wr_en           <= reg_7(8);
   -- firmware version --
-  reg_8                <= x"00000300";
+  reg_8                <= x"00000301";
   --
   reg_9(0)             <= fifo_in_full;
   reg_9(1)             <= fifo_out_empty;
@@ -588,7 +697,7 @@ begin
   reg_10(23 downto 0)  <= fifo_out_dout;
   --
   reg_11(7 downto 0)   <= sync_rd_counter;
-  reg_11(8)           <= sync_counter_busy;
+  reg_11(8)            <= sync_counter_busy;
   reg_11(24 downto 16) <= sync_odelay_o;
   --
   sync_get_odelay      <= reg_12(15);
@@ -597,6 +706,50 @@ begin
   fifo_in_wr_en        <= reg_4_os;
   fifo_out_rd_en       <= reg_10_os;
   sync_set_odelay      <= reg_12_os;
-  --
+  ------------------------------------------------------------------------------------
+  -- ref clk source switch:
+  ------------------------------------------------------------------------------------
+  -- | ref_sel_ext | ref clk source |
+  -- | 1           | external       |
+  -- | 0           | internal       | DEFAULT
+  ref_sel_ext          <= reg_14(6);
+  ------------------------------------------------------------------------------------
+  -- external ref clk switch:
+  ------------------------------------------------------------------------------------
+  -- |ref_sel     | ref clk source               |
+  -- | 1          | fpga_ref_clk                 |
+  -- | 0          | external ref clk SMA EXT REF | DEFAULT
+  ref_sel              <= reg_14(5);
+  ------------------------------------------------------------------------------------
+  -- EV12AQ60x CLK source switch:
+  ------------------------------------------------------------------------------------
+  -- |clk_sel      | ref clk source   |
+  -- | 1           | PLL LMX2592      | 
+  -- | 0           | external SMA     | DEFAULT 
+  clk_sel              <= reg_14(4);
+  ------------------------------------------------------------------------------------
+  -- SYNCO multiplexer CBTL01023 SEL-input:
+  ------------------------------------------------------------------------------------
+  -- |synco_sel | synco fpga source   |
+  -- | 1        | SYNCO external SMA  |
+  -- | 0        | SYNCO ADC           | DEFAULT
+  synco_sel            <= reg_14(3);
+  ------------------------------------------------------------------------------------
+  -- SYNC multiplexer CBTL01023 SEL-input:
+  ------------------------------------------------------------------------------------
+  -- |sync_sel    | sync adc source   |
+  -- | 1          | SYNC external SMA |
+  -- | 0          | SYNC FPGA         | DEFAULT
+  sync_sel             <= reg_14(2);
+  ------------------------------------------------------------------------------------
+  -- Low jitter clock generation with integer N PLL:
+  ------------------------------------------------------------------------------------
+  -- | D0   | D1  | state  | ref clock frequency | PLL Division ratio |
+  -- |  0   |  0  |  OFF   | N.A.                | Power-down         | DEFAULT
+  -- |  1   |  0  |  ON    | 100 MHz             | Divide by 1        |
+  -- |  0   |  1  |  ON    | 20 MHz              | Divide by 5        |
+  -- |  1   |  1  |  ON    | 10 MHz              | Divide by 10       |
+  hmc1031_d1           <= reg_14(1);
+  hmc1031_d0           <= reg_14(0);
 --  
 end architecture rtl;

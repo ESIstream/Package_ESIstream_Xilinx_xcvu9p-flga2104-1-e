@@ -26,7 +26,7 @@
 #    $argv - list of the arguments.
 #    $argv0 - name of the script.
 
-set fpga_ref xcvu9p-flga2104-1-e
+set fpga_ref xcvu9p-flga2104-2L-e
 set path_file [ dict get [ info frame 0 ] file ]
 set script_name [lindex [file split $path_file] end]
 #puts $script_name
@@ -64,6 +64,7 @@ set sim_top tb_rx_esistream_top
 set tb_log_path C:/vw/$package_reference/tb_log.txt
 # VIVADO IP LIST
 set ip_files [list \
+     ila_64b\
      gty_8lanes_64b\
      output_buffer\
      axi_uartlite_0\
@@ -95,6 +96,7 @@ if { [lindex $argv 0] == 0 | $argc != 1 } {
     # Add vhdl files 
     add_files $path_src_top/
     add_files $path_src_common/sysreset.vhd
+    add_files $path_src_common/ila_wrapper_64b.vhd
     add_files $path_src_common/axi4_lite_master.vhd
     add_files $path_src_common/delay.vhd
     add_files $path_src_common/delay_prog.vhd

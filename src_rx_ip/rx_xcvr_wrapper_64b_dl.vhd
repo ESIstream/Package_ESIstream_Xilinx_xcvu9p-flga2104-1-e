@@ -48,6 +48,8 @@ entity rx_xcvr_wrapper is
     sysclk        : in  std_logic;                                                 -- transceiver ip system clock
     refclk_n      : in  std_logic;                                                 -- transceiver ip reference clock
     refclk_p      : in  std_logic;                                                 -- transceiver ip reference clock
+    refclk2_n     : in  std_logic;                                                 -- transceiver ip reference clock
+    refclk2_p     : in  std_logic;                                                 -- transceiver ip reference clock
     rxp           : in  std_logic_vector(NB_LANES-1 downto 0);                     -- lane serial input p
     rxn           : in  std_logic_vector(NB_LANES-1 downto 0);                     -- lane Serial input n
     xcvr_pll_lock : out std_logic_vector(NB_LANES-1 downto 0)             := (others => '0');
@@ -72,6 +74,7 @@ architecture rtl of rx_xcvr_wrapper is
   -- Signal declarations
   --============================================================================================================================
   signal refclk_o          : std_logic                    := '0';
+  signal refclk2_o         : std_logic                    := '0';
   signal refclk_odiv2      : std_logic                    := '0';
   signal rx_rstdone_single : std_logic                    := '0';
   signal qpll_lock         : std_logic_vector(1 downto 0) := "00";
@@ -108,19 +111,33 @@ begin
       ODIV2 => refclk_odiv2
       );
 
+  IBUFDS_GTE4_MGTREFCLK0_INST2 : IBUFDS_GTE4
+    generic map(
+      REFCLK_EN_TX_PATH  => '0',   -- Reserved. This attribute must always be set to "00".
+      REFCLK_HROW_CK_SEL => "00",  -- "00" : f_ODIV2 = f_O ; "01" : f_ODIV2 = f_O/2 ; "10" : ODIV2 = 0 ; "11" : reserved. 
+      REFCLK_ICNTL_RX    => "00"   -- Reserved. Use the recommended value from the Wizard "00".
+      )
+    port map(
+      I     => refclk2_p,
+      IB    => refclk2_n,
+      CEB   => '0',
+      O     => refclk2_o,
+      ODIV2 => open
+      );
+
   -- @details: DIV input:
   -- Specifies the value to divide the clock. Divide value is value
   -- provided plus 1. For instance, setting "0000" will provide a divide
   -- value of 1 and "1111" will be a divide value of 8.
   BUFG_GT_inst_0 : BUFG_GT
     port map (
-      O       => rx_frame_clk,   -- 1-bit output: Buffer
-      CE      => '1',              -- 1-bit input: Buffer enable
-      CEMASK  => '0',              -- 1-bit input: CE Mask
-      CLR     => '0',              -- 1-bit input: Asynchronous clear
-      CLRMASK => '0',              -- 1-bit input: CLR Mask
-      DIV     => "000",            -- 3-bit input: Dynamic divide Value
-      I       => refclk_odiv2      -- 1-bit input: Buffer
+      O       => rx_frame_clk,  -- 1-bit output: Buffer
+      CE      => '1',           -- 1-bit input: Buffer enable
+      CEMASK  => '0',           -- 1-bit input: CE Mask
+      CLR     => '0',           -- 1-bit input: Asynchronous clear
+      CLRMASK => '0',           -- 1-bit input: CLR Mask
+      DIV     => "000",         -- 3-bit input: Dynamic divide Value
+      I       => refclk_odiv2   -- 1-bit input: Buffer
       );
 
   --i_mmcm_frame_clk : entity work.clk_wiz_frame_clk
@@ -162,7 +179,7 @@ begin
       gtwiz_userdata_tx_in               => (others => '0'),
       gtwiz_userdata_rx_out              => data_out,
       gtrefclk00_in(0)                   => refclk_o,
-      gtrefclk00_in(1)                   => refclk_o,
+      gtrefclk00_in(1)                   => refclk2_o,
       qpll0lock_out(0)                   => qpll_lock(0),
       qpll0lock_out(1)                   => qpll_lock(1),
       qpll0outclk_out                    => open,

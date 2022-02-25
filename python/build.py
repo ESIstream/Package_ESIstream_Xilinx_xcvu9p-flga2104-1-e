@@ -69,7 +69,7 @@ package_reference = "xilinx_vu9p"
 #                       ["script_32b_dl.tcl", 10, 10],
 #                       ["script_64b_dl.tcl", 10, 10]]
 #
-hw_project_list = ["vivado_rx_ev12aq60x_qsfp"]
+hw_project_list = ["vivado_rx_ev12aq60x"]
 implementation_list = [["script_64b_dl.tcl", 17, 0]]
 
 tb_log_path = "C:\\vw\\" + package_reference + "\\tb_log.txt" 

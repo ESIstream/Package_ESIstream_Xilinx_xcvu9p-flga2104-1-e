@@ -49,14 +49,16 @@ use ieee.std_logic_unsigned.all;
 
 entity rx_esistream_with_xcvr is
   generic (
-    NB_LANES   : natural                       := 4;           -- number of lanes
-    COMMA      : std_logic_vector(31 downto 0) := x"00FFFF00"  -- comma for frame alignemnent (0x00FFFF00 or 0xFF0000FF).
+    NB_LANES : natural                       := 4;             -- number of lanes
+    COMMA    : std_logic_vector(31 downto 0) := x"00FFFF00"    -- comma for frame alignemnent (0x00FFFF00 or 0xFF0000FF).
     );
   port (
     rst          : in  std_logic;
     sysclk       : in  std_logic;                              -- transceiver ip system clock
     refclk_n     : in  std_logic;                              -- transceiver ip reference clock p input 
     refclk_p     : in  std_logic;                              -- transceiver ip reference clock n input
+    refclk2_n    : in  std_logic;                              -- transceiver ip reference clock p input 
+    refclk2_p    : in  std_logic;                              -- transceiver ip reference clock n input
     rxp          : in  std_logic_vector(NB_LANES-1 downto 0);  -- lane serial input p
     rxn          : in  std_logic_vector(NB_LANES-1 downto 0);  -- lane Serial input n
     sync_in      : in  std_logic;                              -- active high synchronization pulse input
@@ -90,11 +92,11 @@ architecture rtl of rx_esistream_with_xcvr is
   --============================================================================================================================
   -- Signal declarations
   --============================================================================================================================
-  signal rx_usrclk      : std_logic                             := '0';
-  signal rx_rstdone     : std_logic_vector(NB_LANES-1 downto 0) := (others => '0');
-  signal rst_xcvr       : std_logic                             := '0';
-  signal xcvr_pll_lock  : std_logic_vector(NB_LANES-1 downto 0) := (others => '0');
-  signal xcvr_data_rx   : std_logic_vector(DESER_WIDTH*NB_LANES-1 downto 0);
+  signal rx_usrclk     : std_logic                             := '0';
+  signal rx_rstdone    : std_logic_vector(NB_LANES-1 downto 0) := (others => '0');
+  signal rst_xcvr      : std_logic                             := '0';
+  signal xcvr_pll_lock : std_logic_vector(NB_LANES-1 downto 0) := (others => '0');
+  signal xcvr_data_rx  : std_logic_vector(DESER_WIDTH*NB_LANES-1 downto 0);
 
 
 begin
@@ -104,8 +106,8 @@ begin
   --============================================================================================================================
   i_rx_esistream : entity work.rx_esistream
     generic map(
-      NB_LANES   => NB_LANES,
-      COMMA      => COMMA
+      NB_LANES => NB_LANES,
+      COMMA    => COMMA
       ) port map(
         rst_xcvr      => rst_xcvr,
         rx_rstdone    => rx_rstdone,
@@ -119,7 +121,7 @@ begin
         clk_acq       => clk_acq,
         sync_out      => sync_out,
         frame_out     => frame_out,
-        data_out      => open,--data_out,
+        data_out      => open,  --data_out,
         valid_out     => valid_out,
         ip_ready      => ip_ready,
         lanes_ready   => lanes_ready
@@ -140,6 +142,8 @@ begin
         sysclk        => sysclk,
         refclk_n      => refclk_n,
         refclk_p      => refclk_p,
+        refclk2_n     => refclk2_n,
+        refclk2_p     => refclk2_p,
         rxn           => rxn,
         rxp           => rxp,
         xcvr_pll_lock => xcvr_pll_lock,

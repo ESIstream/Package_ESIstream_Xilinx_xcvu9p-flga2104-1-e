@@ -42,6 +42,7 @@ end entity tb_rx_esistream_top;
 architecture behavioral of tb_rx_esistream_top is
 ---------------- Constants ----------------
   constant GEN_ESISTREAM       : boolean                               := true;
+  constant GEN_ILA             : boolean                               := false;
   constant GEN_GPIO            : boolean                               := true;
   constant NB_LANES            : natural                               := 8;
   constant COMMA               : std_logic_vector(31 downto 0)         := x"FF0000FF";
@@ -74,14 +75,28 @@ architecture behavioral of tb_rx_esistream_top is
   signal rst_check             : std_logic                             := '0';
   signal sysrst                : std_logic                             := '0';
   --
-  signal gpio_dip_sw           : std_logic_vector(4 downto 1)          := (others => '0');
-  signal gpio_led              : std_logic_vector(7 downto 0)          := (others => '0');
-  signal gpio_sw_n             : std_logic                             := '0';
-  signal gpio_sw_w             : std_logic                             := '0';
-  signal gpio_sw_s             : std_logic                             := '0';
-  signal gpio_sw_e             : std_logic                             := '0';
-  signal gpio_sw_c             : std_logic                             := '0';
+  signal m2c_cfg               : std_logic_vector(4 downto 1)          := (others => '0');
+  signal c2m_led               : std_logic_vector(4 downto 1)          := (others => '0');
+  -- signal spare_8_uart_tx       : std_logic := '0';
+  -- signal spare_9_uart_rx       : std_logic := '0';
+  signal spare                 : std_logic_vector(7 downto 1)          := (others => '0');
+  signal fpga_ref_clk          : std_logic                             := '0';
+  signal ref_sel_ext           : std_logic                             := '0';
+  signal ref_sel               : std_logic                             := '0';
+  signal clk_sel               : std_logic                             := '0';
+  signal synco_sel             : std_logic                             := '0';
+  signal sync_sel              : std_logic                             := '0';
+  signal hmc1031_d1            : std_logic                             := '0';
+  signal hmc1031_d0            : std_logic                             := '0';
+  signal pll_muxout            : std_logic                             := '1';
+  signal clkoutB_p             : std_logic                             := '0';
+  signal clkoutB_n             : std_logic                             := '0';
   signal ev12aq600_rstn        : std_logic                             := '0';
+  signal adc_sclk              : std_logic                             := '0';
+  signal adc_cs_u              : std_logic                             := '0';
+  signal adc_mosi              : std_logic                             := '0';
+  signal adc_miso              : std_logic                             := '0';
+  signal csn_pll               : std_logic                             := '0';
   signal sclk                  : std_logic                             := '0';
   signal miso                  : std_logic                             := '0';
   signal mosi                  : std_logic                             := '0';
@@ -90,7 +105,7 @@ architecture behavioral of tb_rx_esistream_top is
   signal synctrig_n            : std_logic                             := '0';
   signal synco_p               : std_logic                             := '0';
   signal synco_n               : std_logic                             := '0';
-  --
+--
   signal lfsr_init             : slv_17_array_n(NB_LANES-1 downto 0)   := (others => (others => '1'));
   signal clk_bit               : std_logic                             := '0';
   signal tx_clk                : std_logic                             := '0';
@@ -125,6 +140,15 @@ architecture behavioral of tb_rx_esistream_top is
   signal manual_mode           : std_logic                             := '0';
   --
   signal spare_0               : std_logic                             := '0';
+  --
+  signal gpio_dip_sw           : std_logic_vector(4 downto 1) := (others => '0');
+  signal gpio_led              : std_logic_vector(7 downto 0) := (others => '0');
+  signal gpio_sw_n             : std_logic := '0';
+  signal gpio_sw_w             : std_logic := '0';
+  signal gpio_sw_s             : std_logic := '0';
+  signal gpio_sw_e             : std_logic := '0';
+  signal gpio_sw_c             : std_logic := '0';                                               
+  --
 begin
 --
 --############################################################################################################################
@@ -132,9 +156,8 @@ begin
 -- Clock Generation
 --############################################################################################################################
 --############################################################################################################################
-
-  CLK_125MHZ_P <= not CLK_125MHZ_P after 4.0 ns;  -- PL system clock for registers map, UART communication with computer...
-  CLK_125MHZ_N <= not CLK_125MHZ_N after 4.0 ns;
+  CLK_125MHZ_P <= not CLK_125MHZ_P after 4 ns;  -- PL system clock for registers map, UART communication with computer...
+  CLK_125MHZ_N <= not CLK_125MHZ_N after 4 ns;
   --
   clk_100      <= not clk_100      after 5 ns;    -- clock for UART testbench module used to simulate the computer.
   --
@@ -146,6 +169,7 @@ begin
   rx_esistream_top_1 : entity work.rx_esistream_top
     generic map (
       GEN_ESISTREAM          => GEN_ESISTREAM,
+      GEN_ILA                => GEN_ILA,
       GEN_GPIO               => GEN_GPIO,
       NB_LANES               => NB_LANES,
       RST_CNTR_INIT          => RST_CNTR_INIT,
@@ -160,47 +184,67 @@ begin
     port map (
       sso_n           => sso_n,
       sso_p           => sso_p,
+      sso2_n          => sso_n,
+      sso2_p          => sso_p,
       CLK_125MHZ_P    => CLK_125MHZ_P,
       CLK_125MHZ_N    => CLK_125MHZ_N,
-      -- ev12aq600 HSSLs (x8)
       rxp             => txp,
       rxn             => txn,
-      -- user interface signals 
       gpio_dip_sw     => gpio_dip_sw,
-      gpio_led        => gpio_led,
-      gpio_sw_n       => gpio_sw_n,
-      gpio_sw_w       => gpio_sw_w,
-      gpio_sw_s       => gpio_sw_s,
-      gpio_sw_e       => gpio_sw_e,
-      gpio_sw_c       => gpio_sw_c,
-      uart_tx         => uart_tx,
-      uart_rx         => uart_rx,
-      -- ev12aq600 interface signals
+      gpio_led        => gpio_led,   
+      gpio_sw_n       => gpio_sw_n,  
+      gpio_sw_w       => gpio_sw_w,  
+      gpio_sw_s       => gpio_sw_s,  
+      gpio_sw_e       => gpio_sw_e,  
+      gpio_sw_c       => gpio_sw_c,      
+      m2c_cfg         => m2c_cfg,
+      c2m_led         => c2m_led,
+      spare_8_uart_tx => uart_tx,
+      spare_9_uart_rx => uart_rx,
+      spare           => spare,
+      fpga_ref_clk    => fpga_ref_clk,
+      ref_sel_ext     => ref_sel_ext,
+      ref_sel         => ref_sel,
+      clk_sel         => clk_sel,
+      synco_sel       => synco_sel,
+      sync_sel        => sync_sel,
+      hmc1031_d1      => hmc1031_d1,
+      hmc1031_d0      => hmc1031_d0,
+      pll_muxout      => pll_muxout,
+      clkoutB_p       => clkoutB_p,
+      clkoutB_n       => clkoutB_n,
       rstn            => ev12aq600_rstn,
+      adc_sclk        => adc_sclk,
+      adc_cs_u        => adc_cs_u,
+      adc_mosi        => adc_mosi,
+      adc_miso        => adc_miso,
+      csn_pll         => csn_pll,
       sclk            => sclk,
       miso            => miso,
       mosi            => mosi,
       csn             => csn,
       synctrig_p      => synctrig_p,
-      synctrig_n      => synctrig_n);
+      synctrig_n      => synctrig_n,
+      synco_p         => synco_p,
+      synco_n         => synco_n);
 
   -- --
-  gpio_dip_sw(1)  <= tx_d_ctrl(1);
-  gpio_dip_sw(2)  <= tx_d_ctrl(0);
-  gpio_dip_sw(3)  <= rx_prbs_en;
-  gpio_dip_sw(4)  <= manual_mode;
-  gpio_sw_n       <= rst;
-  gpio_sw_c       <= sync;
-  gpio_sw_s       <= rst_check;
-  gpio_sw_w       <= sysrst;
-  gpio_sw_e       <= '0';
+  spare(7)        <= tx_d_ctrl(1);
+  spare(6)        <= tx_d_ctrl(0);
+  spare(5)        <= rx_prbs_en;
+  spare(4)        <= manual_mode;
+  spare(3)        <= '0';
+  m2c_cfg(1)      <= rst;
+  m2c_cfg(2)      <= sync;
+  m2c_cfg(3)      <= rst_check;
+  m2c_cfg(4)      <= sysrst;
   -- --             
-  tb_uart_ready   <= gpio_led(0);
-  tb_ip_ready     <= gpio_led(1);
-  tb_lanes_ready  <= gpio_led(2);
-  tb_valid_status <= gpio_led(3);
-  tb_cb_status    <= gpio_led(4);
-  tb_be_status    <= gpio_led(5);
+  tb_uart_ready   <= spare(1);
+  tb_ip_ready     <= c2m_led(1);
+  tb_lanes_ready  <= c2m_led(2);
+  tb_cb_status    <= c2m_led(3);
+  tb_be_status    <= c2m_led(4);
+  tb_valid_status <= spare(2);
   --                
   rx_ip_ready     <= tb_ip_ready;
   ip_ready        <= tx_ip_ready and rx_ip_ready;
@@ -261,7 +305,7 @@ begin
       result := cb_status & be_status;
       --
       --file_open(fstatus, logfile, "log.txt", write_mode);
-      file_open(fstatus, logfile, "c:\vw\xilinx_vu9p\tb_log.txt", append_mode);
+      file_open(fstatus, logfile, "c:\vw\xilinx_ku040\tb_log.txt", append_mode);
       L1 : write(buf, string'("tb result: [cb_status & be_status] = ["));
       L2 : write(buf, to_bitvector(result));
       L3 : write(buf, string'("] "));
